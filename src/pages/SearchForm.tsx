@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { GetProps, Input } from 'antd';
 
@@ -16,13 +15,6 @@ export default function SearchForm() {
     const movies = useAppSelector((state) => state.data.movies);
     const isLoading = useAppSelector((state) => state.data.isLoading);
     const error = useAppSelector((state) => state.data.error);
-    const [, setText] = useState('');
-    
-    const search = useAppSelector((state) => state.data.search);
-
-    useEffect(() => {
-        setText(search);
-    }, [search]);
 
     if (isLoading) {
         return <Loading />;
